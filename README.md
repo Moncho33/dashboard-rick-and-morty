@@ -1,62 +1,92 @@
-# Dashboard Rick & Morty 🚀
+# Dashboard de Personajes - Rick & Morty
 
-Una aplicación web interactiva que consume la [Rick and Morty API](https://rickandmortyapi.com/) para calcular métricas clave de los personajes y permitir búsquedas en tiempo real.
+Aplicación web desarrollada como prueba técnica para consumir y visualizar información de personajes de la API pública de Rick & Morty.
 
-📋 Tabla de Contenidos
-Características
+## Descripción
 
-Tecnologías Utilizadas
+El proyecto permite consultar los personajes de Rick & Morty y visualizar información relevante en un dashboard.
 
-Instalación y Uso
+La aplicación muestra:
 
-Estructura del Proyecto
+* Total de personajes cargados.
+* Porcentaje de personajes de especie humana.
+* Personaje con mayor cantidad de episodios.
+* Imagen de cada personaje.
+* Nombre.
+* Estado: Alive, Dead o Unknown.
+* Especie.
+* Cantidad de episodios.
+* Buscador de personajes en tiempo real.
 
-Autor
+## Tecnologías utilizadas
 
-✨ Características
-Métricas generales: Calcula automáticamente el total de personajes, el porcentaje de humanos y el personaje con más apariciones en episodios.
+* HTML5
+* CSS3
+* JavaScript Vanilla
+* API REST de Rick & Morty
 
-Buscador en tiempo real: Filtra los personajes por nombre de forma dinámica mediante eventos del teclado.
+## API utilizada
 
-Consumo de API Paginada: Maneja la paginación completa de la API mediante bucles asíncronos (async/await y fetch).
+Se utilizó la API pública de Rick & Morty:
 
-Tabla dinámica: Renderiza los resultados agregando elementos directamente al DOM.
+`https://rickandmortyapi.com/api/character`
 
-🛠️ Tecnologías Utilizadas
-HTML5: Estructura semántica del dashboard.
+La aplicación consulta las diferentes páginas de la API para cargar todos los personajes disponibles.
 
-CSS3: Estilos generales y presentación de la interfaz.
+## Ejecución local
 
-JavaScript (ES6+): Peticiones HTTP asíncronas, filtrado de arrays (filter, reduce, concat) y manipulación del DOM.
+1. Clonar el repositorio:
 
-📦 Instalación y Uso
-No requiere compilación ni instalación de paquetes externos.
-
-1. Clona este repositorio:
-
-Bash
-git clone [https://github.com/Moncho33/dashboard-rick-and-morty.git](https://github.com/Moncho33/dashboard-rick-and-morty.git)
-
-
-2. Ingresa al directorio del proyecto:
-
-Bash
-dashboard-rick-and-morty
+bash
+git clone https://github.com/Moncho33/dashboard-rick-and-morty.git
 
 
-3. Abre el proyecto:
-Abre el archivo index.html en tu navegador de preferencia o ejecuta la extensión Live Server en tu editor de código.
+2. Entrar a la carpeta del proyecto:
+
+bash
+cd dashboard-rick-and-morty
 
 
-📂 Estructura del Proyecto
-Plaintext
-.
-├── index.html     # Estructura principal del ashboard
-├── styles.css     # Hojas de estilo
-├── script.js      # Lógica de consumo de API y manipulación del DOM
-└── README.md      # Documentación del proyecto
+3. Abrir el archivo `index.html` en un navegador.
 
-👤 Autor: Ramón Cardona
-Desarrollado como parte de proyectos de aprendizaje y práctica en desarrollo web.
+También puede ejecutarse utilizando una extensión como **Live Server** en Visual Studio Code.
 
-GitHub: Moncho33
+## Estructura del proyecto
+
+
+dashboard-rick-and-morty/
+│
+├── index.html
+├── script.js
+├── styles.css
+└── README.md
+
+
+# Funcionalidades principales
+
+### Consumo de API
+
+La aplicación utiliza `fetch()` para obtener la información de los personajes.
+
+### Procesamiento de datos
+
+Los datos recibidos se almacenan y procesan utilizando métodos de JavaScript como:
+
+* `filter()`
+* `reduce()`
+* `forEach()`
+* `concat()`
+
+### Buscador
+
+El buscador permite filtrar los personajes por nombre mientras el usuario escribe.
+
+### Tabla de personajes
+
+La información se muestra dinámicamente en una tabla HTML utilizando JavaScript.
+
+## Autor
+
+**Ramón Cardona**
+
+Proyecto realizado como parte de un proceso de selección para práctica de Desarrollo de Software.
