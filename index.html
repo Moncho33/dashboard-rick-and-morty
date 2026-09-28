@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard Rick & Morty</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Dashboard Rick & Morty</h1>
+        <p>Información de los personajes</p>
+    </header>
+
+    <main>
+
+        <!-- Métricas principales -->
+        <section class="metrics">
+
+            <article class="metric-card">
+                <h2>Total de personajes</h2>
+                <p id="total-personajes">0</p>
+            </article>
+
+            <article class="metric-card">
+                <h2>Porcentaje de humanos</h2>
+                <p id="porcentaje-humanos">0%</p>
+            </article>
+
+            <article class="metric-card">
+                <h2>Más episodios</h2>
+                <p id="personaje-top">-</p>
+            </article>
+
+        </section>
+
+        <!-- Buscador -->
+        <section class="search-section">
+
+            <label for="input-busqueda">Buscar personaje</label>
+
+            <input
+                type="text"
+                id="input-busqueda"
+                placeholder="Escribe un nombre..."
+            >
+
+        </section>
+
+      
+        <section class="table-section">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Estado</th>
+                        <th>Especie</th>
+                        <th>Episodios</th>
+                    </tr>
+                </thead>
+
+                <tbody id="cuerpo-tabla-personajes">
+                    
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
