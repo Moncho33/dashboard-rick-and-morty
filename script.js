@@ -70,7 +70,15 @@ function renderizarTabla(listaPersonajes) {
         tdNombre.textContent = personaje.name;
 
         const tdEstado = document.createElement('td');
-        tdEstado.textContent = personaje.status;
+
+        const estado = document.createElement('span');
+
+        estado.textContent = personaje.status;
+
+        estado.classList.add('status-badge');
+        estado.classList.add(personaje.status.toLowerCase());
+
+        tdEstado.appendChild(estado);
 
         const tdEspecie = document.createElement('td');
         tdEspecie.textContent = personaje.species;
