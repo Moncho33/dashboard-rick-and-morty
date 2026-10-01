@@ -9,51 +9,45 @@ const inputBusqueda = document.getElementById('input-busqueda');
 const cuerpoTabla = document.getElementById('cuerpo-tabla-personajes');
 
 async function obtenerPersonajes() {
-
+ try {
     let url = URL_API;
     let todosLosPersonajes = [];
 
     while (url) {
         const respuesta = await fetch(url);
-
         if (!respuesta.ok) {
             throw new Error(`Error HTTP: ${respuesta.status}`);
         }
-
-        const datos = await respuesta.json();
-
-       
+        const datos = await respuesta.json();       
         todosLosPersonajes = todosLosPersonajes.concat(datos.results);
-
         url = datos.info.next;
     }
 
     personajes = todosLosPersonajes;
-
     elementoTotalPersonajes.textContent = personajes.length;
-
+// recorre
     const personajesHumanos = personajes.filter(function (personaje) {
         return personaje.species === 'Human'; 
     });
 
     const porcentaje = (personajesHumanos.length / personajes.length) * 100;
-
     elementoPorcentajeHumanos.textContent = porcentaje.toFixed(1) + '%';
-
     const personajeMasEpisodios = personajes.reduce(function (maximo, personaje) {
         return personaje.episode.length > maximo.episode.length ? personaje : maximo;
     }, personajes[0]);
 
-    elementoPersonajeTop.textContent =
-        personajeMasEpisodios.name + ' (' + personajeMasEpisodios.episode.length + ' episodios)';
+    elementoPersonajeTop.textContent = personajeMasEpisodios.name + ' (' + personajeMasEpisodios.episode.length + ' episodios)';
 
     renderizarTabla(personajes);
+} catch (error) {
+    console.error('Error al obtener los personajes:', error);
+    cuerpoTabla.textContent = 'Error al cargar los personajes. Por favor, inténtalo de nuevo más tarde.';
+}
 }
 
 function renderizarTabla(listaPersonajes) {
 
     cuerpoTabla.textContent = '';
-
     listaPersonajes.forEach(function (personaje) {
 
         const fila = document.createElement('tr');
@@ -72,12 +66,9 @@ function renderizarTabla(listaPersonajes) {
         const tdEstado = document.createElement('td');
 
         const estado = document.createElement('span');
-
         estado.textContent = personaje.status;
-
         estado.classList.add('status-badge');
         estado.classList.add(personaje.status.toLowerCase());
-
         tdEstado.appendChild(estado);
 
         const tdEspecie = document.createElement('td');
